@@ -5,7 +5,7 @@ let score = 20;
 let topScore = 0;
 
 function generateRandomNumber() {
-    randomNum = Math.floor(Math.random() * 20) + 1;
+    randomNum = Math.trunc(Math.random() * 20) + 1;
 }
 
 function handleGuess() {
@@ -20,7 +20,7 @@ function handleGuess() {
 
 function onCorrectGuess() {
     document.body.style.backgroundColor = "#48ff00";
-    messageLabel.textContent = "Du har gættet tallet!";
+    messageLabel.textContent = "yay you guessed right!";
     numberLabel.textContent = randomNum;
     checkButton.disabled = true;
 
@@ -35,7 +35,7 @@ function onWrongGuess(guess) {
         invalidGuess();
     } else {
         updateScore();
-        displayHint(guess);
+        Hint(guess);
     }
 }
 
@@ -44,7 +44,7 @@ function invalidGuess() {
     document.body.style.backgroundColor = "#222";
 }
 
-function displayHint(guess) {
+function Hint(guess) {
     document.body.style.backgroundColor = "#ff0000";
 
     if (guess > randomNum) {
